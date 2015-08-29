@@ -1,0 +1,44 @@
+buildscript {
+	repositories{
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.4.RELEASE")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+
+jar {
+	baseName = 'spark-media-generator'
+	version = '0.1.0'
+	manifest {
+		attributes 'Main-Class': 'core.Application'
+	}
+}
+
+repositories{
+	mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+	compile("net.coobird:thumbnailator:0.4.8")
+	compile("org.springframework.boot:spring-boot-starter-web:1.2.4.RELEASE")
+	compile("org.springframework.boot:spring-boot-starter-data-jpa:1.2.4.RELEASE")
+	compile("org.springframework.boot:spring-boot-starter-actuator:1.2.4.RELEASE")
+	compile("org.apache.httpcomponents:httpclient:4.5")
+	compile("com.amazonaws:aws-java-sdk-core:1.10.2")
+	compile("com.amazonaws:aws-java-sdk-s3:1.10.2")
+	compile("mysql:mysql-connector-java:5.1.35")
+	compile("org.json:json:20141113")
+	testCompile("junit:junit")
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.4'
+}
