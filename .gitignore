@@ -2,3 +2,5 @@
 .gradle/
 .project
 .settings/
+bin/application.properties
+src/main/resources/application.properties
